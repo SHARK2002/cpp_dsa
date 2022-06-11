@@ -8,16 +8,18 @@ class node
     public:
     int value;
     node *next;
+    node *prev;
     //parameterised constructor to initialize a node object
-    node()
+    node(int x)
     {
-        value=0;
+        value=x;
         next=NULL;
+        prev=NULL;
     }
 };
 
 //class Singly_linked_list which contains an node pointer
-class Singly_Linked_list
+class Doubly_Linked_list
 {
     public:
 
@@ -52,6 +54,7 @@ class Singly_Linked_list
             }
 
             temp->next=n;
+            n->prev=temp;
         }
     }
 
@@ -65,6 +68,7 @@ class Singly_Linked_list
         else
         {
             n->next=head;
+            head->prev=n;
             head=n;
         }
     }
@@ -81,6 +85,7 @@ class Singly_Linked_list
         }
         node*ptr=temp->next;
         temp->next=n;
+        ptr->prev=n;
         n->next=ptr;
     }
 

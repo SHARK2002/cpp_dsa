@@ -41,17 +41,19 @@ class Singly_Linked_list
         if(head==NULL)
         {
             head=n;
+            n->next=head;
         }
         else
         {
             node* temp=head;
 
-            while(temp->next!=NULL)
+            while(temp->next!=head)
             {
                 temp=temp->next;
             }
 
             temp->next=n;
+            n->next=head;
         }
     }
 
@@ -96,12 +98,13 @@ class Singly_Linked_list
             cout<<"The Current List is"<<endl;
 
             node* temp=head;
-
-            while(temp!=NULL)
+            do
             {
                 cout<<temp->value<<"->";
                 temp=temp->next;
             }
+            while(temp!=head)
+
             cout<<endl;
         }
     }
